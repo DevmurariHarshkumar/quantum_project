@@ -8,7 +8,7 @@ import { DragDropService } from '../../drag-drop.service';
 })
 export class ResposeStorageComponent {
 
-  boxes = Array.from({ length: 10 }, (_, i) => ({ id: `box${i + 1}`, label: `Response ${i + 1}` }));
+  boxes = Array.from({ length: 10 }, (_, i) => ({ id: `box${i + 1}`, label: `Response ${i + 1}` , isEditing:false}));
 
   constructor(private dragDropService: DragDropService){}
 
@@ -16,6 +16,22 @@ export class ResposeStorageComponent {
     this.initializeDragAndDropboxes();
   }
 
+  editBox(box: any) {
+    box.isEditing = true;
+    // console.log(box);
+    // var x = document.getElementById(box.id)
+    // console.log("adfsadsf", x)
+    // if (x instanceof HTMLElement){
+    //   x.style.color = "black";
+    //   x.style.backgroundColor = "red";
+    //   x.focus()
+    // }
+  }
+
+  stopEditing(box: any) {
+    box.isEditing = false;
+  }
+  
   initializeDragAndDropboxes(): void{
     const boxes = Array.from(document.querySelectorAll('.box')) as HTMLElement[];
   

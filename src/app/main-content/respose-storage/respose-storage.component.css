@@ -13,16 +13,24 @@
   }
 
   .container {
-    width: 70%; /* Span 70% of the page width */
+    width: 70%;
     height: auto;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
     background-color: white;
-    margin: 0 auto; /* Center the container */
+    margin: 0 auto;
     flex-direction: column;
-    padding: 20px; /* Add padding inside the container */
-    border: 2px dotted #000; /* Dotted border */
-    overflow: auto; /* Allow scrolling if items overflow */
+    padding: 20px;
+    border: 2px dotted #000;
+    overflow: auto;
   }
+
+.box input {
+  width: 100%;
+  padding: 5px;
+  font-size: 10px;
+  border: 0px solid #000;
+  /* box-sizing: border-box; */
+}

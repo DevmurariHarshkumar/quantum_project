@@ -17,4 +17,8 @@ export class DragDropService {
   getDraggedItem(){
     return this.draggedItem$;
   }
+
+  testing(){
+    console.log("testing")
+  }
 } 

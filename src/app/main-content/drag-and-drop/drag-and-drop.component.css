@@ -2,28 +2,28 @@
   align-items: center;
   justify-content: center;
   width: 70%;
-  margin: 0 auto; /* Center the container */
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   gap: 10px;
   margin-bottom: 20px;
-  background-color: lightblue; /* Light blue background for the container */
-  border: 2px dotted #000; /* Dotted border */
-  padding: 20px; /* Add padding inside the container */   
+  background-color: lightblue;
+  border: 2px dotted #000;
+  padding: 20px;  
 }
 
 .dropzone {
-  width: 80%; /* Adjust width as needed */
-  /* height: 50px; Adjust height as needed */
+  width: 97%;
   background-color: lightgrey;
   border: 2px dashed #000;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  justify-content: center ; /*Align items to the top*/
+  justify-content: center;
   padding: 10px;
-  overflow: auto; /* Allow scrolling if items overflow */
+  overflow: auto;
   height: auto;
+  min-height: 45px;
 }

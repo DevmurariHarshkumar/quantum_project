@@ -1,6 +1,15 @@
-<div class="container">
+<!-- <div class="container">
     <div class="box" *ngFor="let box of boxes" [attr.id]="box.id" draggable="true">
       {{ box.label }}
     </div>
-</div>
+</div> -->
   
+
+
+
+   <div class="container">
+    <div class="box" *ngFor="let box of boxes" [attr.id]="box.id" draggable="true" (dblclick)="editBox(box)">
+      <input *ngIf="box.isEditing" [(ngModel)]="box.label" (blur)="stopEditing(box)" />
+      <span *ngIf="!box.isEditing">{{ box.label }}</span>
+    </div>
+  </div>
