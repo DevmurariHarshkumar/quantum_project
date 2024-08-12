@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DragDropService } from '../drag-drop.service';
+import { DragDropService } from '../../drag-drop.service';
 
 @Component({
   selector: 'app-respose-storage',
@@ -8,7 +8,7 @@ import { DragDropService } from '../drag-drop.service';
 })
 export class ResposeStorageComponent {
 
-  boxes = Array.from({ length: 10 }, (_, i) => ({ id: `box${i + 1}`, label: `Box ${i + 1}` }));
+  boxes = Array.from({ length: 10 }, (_, i) => ({ id: `box${i + 1}`, label: `Response ${i + 1}` }));
 
   constructor(private dragDropService: DragDropService){}
 

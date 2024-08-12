@@ -1,0 +1,28 @@
+.box {
+    width: 70px;
+    min-width: 70px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    cursor: move;
+    font-size: 10px;
+  }
+
+  .container {
+    width: 70%; /* Span 70% of the page width */
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: white;
+    margin: 0 auto; /* Center the container */
+    flex-direction: column;
+    padding: 20px; /* Add padding inside the container */
+    border: 2px dotted #000; /* Dotted border */
+    overflow: auto; /* Allow scrolling if items overflow */
+  }

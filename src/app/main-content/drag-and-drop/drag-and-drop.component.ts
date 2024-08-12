@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { DragDropService } from '../drag-drop.service';
+import { DragDropService } from '../../drag-drop.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -10,8 +10,8 @@ import { Subscription } from 'rxjs';
 export class DragAndDropComponent implements AfterViewInit {
   dropzones = [
     { id: 'dropzone1' },
-    { id: 'dropzone2' },
-    { id: 'dropzone3' }
+    // { id: 'dropzone2' },
+    // { id: 'dropzone3' }
   ];
 
   private dragSubscription: Subscription | null = null;
