@@ -1,1 +1,10 @@
-<p>matrix works!</p>
+<!-- <div class="container">
+    <div class="mat" *ngFor="let mats of matrix_elements"  [attr.id]="mats.id"></div>
+</div> -->
+
+
+<div class="matrix-container">
+    <div class="row" *ngFor="let row of matrix_elements">
+      <div class="mat" *ngFor="let mat of row" [attr.id]="mat.id"></div>
+    </div>
+</div>

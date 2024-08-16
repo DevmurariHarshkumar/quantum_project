@@ -1,36 +1,65 @@
 .box {
-    width: 70px;
-    min-width: 70px;
-    height: 30px;
-    background-color: white;
-    border: 1px solid #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 5px;
-    cursor: move;
-    font-size: 10px;
-  }
-
-  .container {
-    width: 70%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-    background-color: white;
-    margin: 0 auto;
-    flex-direction: column;
-    padding: 20px;
-    border: 2px dotted #000;
-    overflow: auto;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #000;
+  margin: 5px;
+  cursor: move;
+  font-size: 12px;
+  transition: width 0.3s ease, height 0.3s ease;
+  min-width: 120px;
+  min-height: 10px;
+}
 
 .box input {
-  width: 100%;
-  padding: 5px;
-  font-size: 10px;
-  border: 0px solid #000;
-  /* box-sizing: border-box; */
+  font-size: inherit;
+  border: none;
+  outline: none;
+  padding: 0;
+  background: none;
+}
+
+.container {
+  width: 70%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border: 2px dotted #000;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.box button {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-left: 10px;
+  flex-shrink: 0;
 }
