@@ -7,8 +7,8 @@ import { DragDropService } from '../../drag-drop.service';
   styleUrls: ['./respose-storage.component.css']
 })
 export class ResposeStorageComponent implements AfterViewInit {
-  boxes = Array.from({ length: 3 }, (_, i) => ({ id: `box${i + 1}`, label: `Response ${i + 1}`, isEditing: false }));
-  box_till_now = 0;
+  boxes = Array.from({ length: 1 }, (_, i) => ({ id: `box${i + 1}`, label: `Response ${i + 1}`, isEditing: false }));
+  box_till_now = 1;
 
   constructor(private dragDropService: DragDropService) {}
 
