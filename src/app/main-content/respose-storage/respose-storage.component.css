@@ -2,27 +2,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px;
+  padding: 2px;
   background-color: white;
   border: 1px solid #000;
-  margin: 5px;
+  margin: 4px;
   cursor: move;
   font-size: 12px;
   transition: width 0.3s ease, height 0.3s ease;
-  min-width: 120px;
-  min-height: 10px;
+  min-width: 100px;
+  min-height: 5px;
+  border-radius: 2px;
 }
 
 .box input {
   font-size: inherit;
   border: none;
   outline: none;
-  padding: 0;
+  padding: 3px;
   background: none;
 }
 
 .container {
-  width: 70%;
   height: auto;
   display: flex;
   flex-direction: column;

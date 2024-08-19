@@ -1,7 +1,33 @@
 <div class="matrix-container">
-    <div class="row" *ngFor="let row of matrix_elements">
-      <div class="mat" *ngFor="let mat of row" [attr.id]="mat.id"></div>
+  <div id="whole_question">
+    <div id="question_stem" class="individual_header">
+      Question (Stem)*
     </div>
-    <div><button (click)="add_row()">add row</button></div>
-    <div><button (click)="add_column()">add column</button></div>
+    <div id="question_textbox">
+      <input type="text" placeholder="Enter Question (Stem)" required>
+    </div>
+  </div>
+  <br>
+  <div id="whole_title_position">
+    <div id="set_title_position" class="individual_header">
+      Set Title Position
+    </div>
+    <div id="title_checkbox">
+      <input type="checkbox" id="1st_Column" name="1st_Column" value="1st_Column" class="checkbox_element">
+      <label for="1st_Column"> 1st Column</label>
+      <input type="checkbox" id="1st_Row" name="1st_Row" value="1st_Row" class="checkbox_element">
+      <label for="1st_Row"> 1st Row</label>
+    </div>
+  </div>
+
+    <div class="whole_matrix">
+      <div id="matrix_section" class="individual_header">
+        Matrix Section*
+      </div>
+      <div class="row" *ngFor="let row of matrix_elements">
+        <div class="mat" *ngFor="let mat of row" [attr.id]="mat.id"></div>
+      </div>
+      <div><button (click)="add_row()">add row</button></div>
+      <div><button (click)="add_column()">add column</button></div>
+    </div>
 </div>

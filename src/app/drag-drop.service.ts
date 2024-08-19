@@ -13,7 +13,7 @@ export class DragDropService {
     this.draggedItemSource.next(item);
   }
 
-  // removing afte delte button is pressed, removes from mat-box-linker
+  // removing afte delte is pressed, removes from mat-box-linker
   cleanupDeletedBox(deletedBoxId: string): void {
     for (const key in this.matrix_box_linker) {
       const index = this.matrix_box_linker[key].indexOf(deletedBoxId);

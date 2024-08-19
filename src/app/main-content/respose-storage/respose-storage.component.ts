@@ -31,7 +31,7 @@ export class ResposeStorageComponent implements AfterViewInit {
     this.boxes.push({ id: newBoxId, label: `Response ${this.box_till_now}`, isEditing: false });
     setTimeout(() => {
       this.initializeDragAndDropboxes();
-    }, 0);  
+    }, 0);
   }
 
   initializeDragAndDropboxes(): void {

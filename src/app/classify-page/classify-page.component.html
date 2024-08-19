@@ -1,0 +1,16 @@
+<div class="main-content">
+    <div>Classify (Locked)</div>
+    <div class="two_buttons">
+        <div>
+            <button (click)="showComponent('question_properties')" class="button">Question Properties</button>
+        </div>
+        <div>
+            <button (click)="showComponent('question_content')" class="button">Question Content</button>
+        </div>
+    </div>
+</div>
+
+<div>
+    <app-main-properties *ngIf="activeComponent === 'question_properties'"></app-main-properties>
+    <app-main-content *ngIf="activeComponent === 'question_content'"></app-main-content>
+</div>

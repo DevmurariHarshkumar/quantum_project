@@ -9,8 +9,8 @@ import { DragDropService } from 'src/app/drag-drop.service';
 export class MatrixComponent {
 
   matrix_elements: any[][] = [
-    [{id:'mat11'}, {id:'mat12'}, {id:'mat13'}],
-    [{id:'mat21'}, {id:'mat22'}, {id:'mat23'}],
+    [{id:'mat11'}, {id:'mat12'}],
+    [{id:'mat21'}, {id:'mat22'}],
   ];
 
   constructor(private dragDropService: DragDropService) {}

@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
     MainContentComponent,
     DragAndDropComponent,
     ResposeStorageComponent,
-    MatrixComponent
+    MatrixComponent,
   ],
   imports: [
     CommonModule, 

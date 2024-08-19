@@ -1,7 +1,6 @@
 .container {
     align-items: center;
     justify-content: center;
-    width: 70%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -14,9 +13,8 @@
   }
 
   .matrix-container {
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
-    width: 70%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -25,7 +23,6 @@
     background-color: lightblue;
     border: 2px dotted #000;
     padding: 20px;  
-    display: flex;
     flex-direction: column;
     overflow:auto;
   }
@@ -37,8 +34,8 @@
   }
   
   .mat {
-    width: 200px;
-    height: 100px;
+    width: 250px;
+    height: 80px;
     background-color: lightgrey;
     border: 2px dashed #000;
     display: flex;
@@ -47,4 +44,15 @@
     margin: 5px;
     cursor: move;
     overflow:auto;
+  }
+
+
+  #whole_question{
+    align-items: baseline;
+    justify-content: baseline;
+
+  }
+
+  .individual_header{
+    font-size: 10px;
   }
