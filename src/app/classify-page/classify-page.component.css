@@ -30,3 +30,16 @@
 .button:hover {
     background-color: lightgrey;
   }
+
+  
+.footer {
+  padding: 12px 0;
+  background: #E0E1E1;
+  color: #616161;
+  font-size: 12px;
+  font-weight: 500px;
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

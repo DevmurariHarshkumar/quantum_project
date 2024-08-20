@@ -63,3 +63,16 @@ button {
   margin-left: 10px;
   flex-shrink: 0;
 }
+
+
+.select_tools, .add_feedback{
+  color: blue;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 10px;
+  margin-bottom: 20px;
+  border: 2px dotted #000;
+  padding: 20px;
+}
+

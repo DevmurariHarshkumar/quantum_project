@@ -1,10 +1,17 @@
-   <div class="container">
-     
-     <div class="box" *ngFor="let box of boxes" [attr.id]="box.id" draggable="true" (dblclick)="editBox(box)">
-       <input *ngIf="box.isEditing" [(ngModel)]="box.label" (blur)="stopEditing(box)" />
-       <span *ngIf="!box.isEditing">{{ box.label }}</span>
-       <button (click)="deleteBox(box)">D</button>
-      </div>
-    <button (click)="addBox()">Add Response</button>
+<div class="container">
+  <div class="box" *ngFor="let box of boxes" [attr.id]="box.id" draggable="true" (dblclick)="editBox(box)">
+    <input *ngIf="box.isEditing" [(ngModel)]="box.label" (blur)="stopEditing(box)" />
+    <span *ngIf="!box.isEditing">{{ box.label }}</span>
+    <button (click)="deleteBox(box)">D</button>
   </div>
-  
+  <button (click)="addBox()">Add Response</button>
+</div>
+
+
+<div class="select_tools">
+  SELECT TOOLS
+</div>
+
+<div class="add_feedback">
+  ADD FEEDBACK
+</div>
