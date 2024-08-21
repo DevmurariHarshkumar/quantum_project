@@ -17,7 +17,7 @@ export class DragAndDropComponent implements AfterViewInit {
   ngOnInit(): void {
     this.dragDropService.boxxes$.subscribe(updatedBoxxes => {
       this.boxes = updatedBoxxes;
-      console.log('Boxes in second component:', this.boxes);
+      // console.log('Boxes in second component:', this.boxes);
     })
   }
   ngAfterViewInit(): void {

@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ClassifyPageComponent {
   constructor(){}
 
-  activeComponent: string = 'question_properties';
+  activeComponent: string = 'question_content';
 
   showComponent(component: string) {
     this.activeComponent = component;
