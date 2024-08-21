@@ -9,6 +9,23 @@ export class DragDropService {
   draggedItem$ = this.draggedItemSource.asObservable();
   matrix_box_linker: { [key: string]: string[] } = {};
 
+
+
+
+  private boxxesSource = new BehaviorSubject<any[]>([]);
+  
+  // Observable that components can subscribe to
+  boxxes$ = this.boxxesSource.asObservable();
+
+  // Method to update the boxxes array
+  updateBoxes(newBoxes: any[]): void {
+    this.boxxesSource.next(newBoxes); // Push the updated array to the BehaviorSubject
+  }
+
+
+
+
+
   setDraggedItem(item: HTMLElement | null) {
     this.draggedItemSource.next(item);
   }

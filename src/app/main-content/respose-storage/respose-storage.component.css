@@ -1,4 +1,4 @@
-.box {
+.box_not_draggable {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,7 +14,7 @@
   border-radius: 2px;
 }
 
-.box input {
+.box_not_draggable input {
   font-size: inherit;
   border: none;
   outline: none;
@@ -52,7 +52,7 @@ button {
   border-radius: 5px;
 }
 
-.box button {
+.box_not_draggable button {
   background-color: #f44336;
   border: none;
   color: white;

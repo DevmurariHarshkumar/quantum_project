@@ -26,3 +26,20 @@
   height: auto;
   min-height: 45px;
 }
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px;
+  background-color: white;
+  border: 1px solid #000;
+  margin: 4px;
+  cursor: move;
+  font-size: 12px;
+  transition: width 0.3s ease, height 0.3s ease;
+  min-width: 100px;
+  min-height: 5px;
+  border-radius: 2px;
+  overflow: auto;
+}

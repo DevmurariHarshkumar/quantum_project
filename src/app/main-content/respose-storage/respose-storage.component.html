@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="box" *ngFor="let box of boxes" [attr.id]="box.id" draggable="true" (dblclick)="editBox(box)">
-    <input *ngIf="box.isEditing" [(ngModel)]="box.label" (blur)="stopEditing(box)" />
+  <div class="box_not_draggable" *ngFor="let box of boxes" [attr.id]="box.id" draggable="false" (click)="editBox(box)">
+    <input *ngIf="box.isEditing" [(ngModel)]="box.label" (blur)="stopEditing(box)" autofocus />
     <span *ngIf="!box.isEditing">{{ box.label }}</span>
     <button (click)="deleteBox(box)">D</button>
   </div>

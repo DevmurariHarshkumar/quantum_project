@@ -10,11 +10,22 @@ export class DragAndDropComponent implements AfterViewInit {
   dropzones = [
     { id: 'dropzone1' },
   ];
+  boxes: any[] = [];
 
   constructor(private dragDropService: DragDropService) { }
 
+  ngOnInit(): void {
+    this.dragDropService.boxxes$.subscribe(updatedBoxxes => {
+      this.boxes = updatedBoxxes;
+      console.log('Boxes in second component:', this.boxes);
+    })
+  }
   ngAfterViewInit(): void {
     const dropzones = Array.from(document.querySelectorAll('.dropzone')) as HTMLElement[];
     this.dragDropService.initializeDragAndDrop([], dropzones);
+    this.dragDropService.boxxes$.subscribe(updatedBoxxes => {
+      this.boxes = updatedBoxxes;
+      console.log('Boxes in second component:', this.boxes);
+    })
   }
 }

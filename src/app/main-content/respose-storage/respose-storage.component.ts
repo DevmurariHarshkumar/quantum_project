@@ -14,7 +14,9 @@ export class ResposeStorageComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const boxes = Array.from(document.querySelectorAll('.box')) as HTMLElement[];
+    console.log("ngafterviewinit boxes", boxes)
     this.dragDropService.initializeDragAndDrop(boxes, []);
+    this.dragDropService.updateBoxes(this.boxes);
   }
 
   editBox(box: any) {
@@ -32,6 +34,7 @@ export class ResposeStorageComponent implements AfterViewInit {
     setTimeout(() => {
       this.initializeDragAndDropboxes();
     }, 0);
+    this.dragDropService.updateBoxes(this.boxes); // for changes in drag and drop 
   }
 
   initializeDragAndDropboxes(): void {
@@ -45,5 +48,6 @@ export class ResposeStorageComponent implements AfterViewInit {
     this.dragDropService.cleanupDeletedBox(box.id); // Clean up the box from the linker
     const boxes = Array.from(document.querySelectorAll('.box')) as HTMLElement[];
     this.dragDropService.initializeDragAndDrop(boxes, []);
+    this.dragDropService.updateBoxes(this.boxes);
   }
 }

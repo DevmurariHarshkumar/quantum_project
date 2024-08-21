@@ -1,3 +1,7 @@
 <div class="container">
-  <div class="dropzone" *ngFor="let dropzone of dropzones" [attr.id]="dropzone.id"></div>
+  <div class="dropzone" *ngFor="let dropzone of dropzones" [attr.id]="dropzone.id">
+    <div class="box" *ngFor="let box of boxes" [attr.id]="box.id" draggable="true">
+      <span>{{ box.label }}</span>
+    </div>
+  </div>
 </div>
