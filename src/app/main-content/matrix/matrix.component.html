@@ -13,9 +13,9 @@
       Set Title Position
     </div>
     <div id="title_checkbox">
-      <input type="checkbox" id="1st_Column" name="1st_Column" value="1st_Column" class="checkbox_element">
+      <input type="checkbox" id="1st_Column" name="1st_Column" value="1st_Column" class="checkbox_element" [(ngModel)]="isFirstColumnChecked">
       <label for="1st_Column"> 1st Column</label>
-      <input type="checkbox" id="1st_Row" name="1st_Row" value="1st_Row" class="checkbox_element">
+      <input type="checkbox" id="1st_Row" name="1st_Row" value="1st_Row" class="checkbox_element" [(ngModel)]="isFirstRowChecked">
       <label for="1st_Row"> 1st Row</label>
     </div>
   </div>
@@ -25,19 +25,25 @@
       Matrix Section*
     </div>
     
+    <!-- <div *ngIf='check_checkbox_state()'>asdfasdfasdfasdfasd</div> -->
+
     <div class="parent-mat">
       <div *ngFor="let row of matrix_elements; index as i">
         <div class="row">
           <div *ngFor="let mat of row; index as j">
             <div *ngIf="i === 0 || j === 0; else other_content">
-              <div class="mat_title">
-                <div [attr.id]="mat.id">Title</div>
+              <div *ngIf="i === 0 && j !== 0 && isFirstRowChecked">
+                <div class="mat_title" [attr.id]="mat.id"></div>
+              </div>
+              <div *ngIf="j === 0 && i !== 0 && isFirstColumnChecked">
+                <div class="mat_title" [attr.id]="mat.id"></div>
+              </div>
+              <div *ngIf="i ===0 && j === 0 && isFirstRowChecked && isFirstColumnChecked">
+                <div class="mat_title" [attr.id]="mat.id"></div>
               </div>
             </div>
             <ng-template #other_content>
-              <div class="mat">
-                <div [attr.id]="mat.id">Ram</div>
-              </div>
+              <div class="mat" [attr.id]="mat.id"></div>
             </ng-template>
           </div>
         </div>

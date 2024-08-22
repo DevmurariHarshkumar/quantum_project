@@ -37,11 +37,22 @@
   justify-content: baseline;
 }
 
-.mat,
+.mat {
+  min-width: 250px;
+  height: 80px;
+  background-color: rgb(230, 227, 227);
+  border: 2px dashed #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  cursor: move;
+}
+
 .mat_title {
   min-width: 250px;
   height: 80px;
-  background-color: lightgrey;
+  background-color: rgb(44, 189, 233);
   border: 2px dashed #000;
   display: flex;
   align-items: center;

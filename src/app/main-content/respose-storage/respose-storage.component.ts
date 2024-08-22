@@ -14,7 +14,6 @@ export class ResposeStorageComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const boxes = Array.from(document.querySelectorAll('.box')) as HTMLElement[];
-    console.log("ngafterviewinit boxes", boxes)
     this.dragDropService.initializeDragAndDrop(boxes, []);
     this.dragDropService.updateBoxes(this.boxes);
   }
@@ -39,13 +38,12 @@ export class ResposeStorageComponent implements AfterViewInit {
 
   initializeDragAndDropboxes(): void {
     const boxes = Array.from(document.querySelectorAll('.box')) as HTMLElement[];
-    console.log("boxes.length", boxes.length)
     this.dragDropService.initializeDragAndDrop(boxes, []);
   }
 
   deleteBox(box: any): void {
     this.boxes = this.boxes.filter(b => b.id !== box.id);
-    this.dragDropService.cleanupDeletedBox(box.id); // Clean up the box from the linker
+    this.dragDropService.cleanupDeletedBox(box.id);
     const boxes = Array.from(document.querySelectorAll('.box')) as HTMLElement[];
     this.dragDropService.initializeDragAndDrop(boxes, []);
     this.dragDropService.updateBoxes(this.boxes);

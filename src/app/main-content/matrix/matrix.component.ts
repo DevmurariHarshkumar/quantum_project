@@ -27,7 +27,7 @@ export class MatrixComponent {
     if (this.shouldInitializeDragDrop) {
       this.shouldInitializeDragDrop = false;
       const matrix_elements = Array.from(document.querySelectorAll('.mat')) as HTMLElement[];
-      console.log("HTML RETRIEVED", matrix_elements);
+      // console.log("HTML RETRIEVED", matrix_elements);
       this.dragDropService.initializeDragAndDrop([], matrix_elements);
     }
   }
@@ -35,15 +35,11 @@ export class MatrixComponent {
   add_row() {
     const no_of_rows = this.matrix_elements.length;
     const no_of_columns = this.matrix_elements[0].length;
-
-    console.log(no_of_rows, no_of_columns);
     const row = [];
     for (let i = 1; i <= no_of_columns; i++) {
       const newMatId = `mat${no_of_rows+1}${i}`;
       row.push({id: newMatId});
     }
-    console.log(row);
-    console.log(this.matrix_elements);
     this.matrix_elements.push(row);
     this.shouldInitializeDragDrop = true;
   }
@@ -56,60 +52,81 @@ export class MatrixComponent {
       const newMatId = `mat${rowIndex + 1}${no_of_columns}`;
       this.matrix_elements[rowIndex].push({ id: newMatId });
     }
-  
-    console.log("Updated matrix_elements:", this.matrix_elements);
     this.shouldInitializeDragDrop = true;
   }
 
 
   del_row() {
-    this.matrix_elements = this.matrix_elements.slice(0, -1);
+    // const deleted_row = this.matrix_elements[this.matrix_elements.length-1];
+    // console.log("deleted_row///////////////////", deleted_row)
+    console.log("before", this.matrix_elements, this.dragDropService.matrix_box_linker)
+    // this.matrix_elements = this.matrix_elements.slice(0, -1);
+    const deleted_row = this.matrix_elements.pop();
+    
+    for(let i = 0; i < deleted_row!.length; i++){
+      // console.log(deleted_row[i].id, "asdf")
+      if (this.dragDropService.matrix_box_linker.hasOwnProperty(deleted_row![i].id)) {
+        delete this.dragDropService.matrix_box_linker[deleted_row![i].id];
+      }
+    }
+    
+    
+    console.log("after", this.matrix_elements, this.dragDropService.matrix_box_linker)
+    this.shouldInitializeDragDrop = true;
   }
 
   del_column() {
-    const no_of_rows = this.matrix_elements.length;
-    const no_of_columns = this.matrix_elements[0].length + 1; // New column index
-  
-    for (let rowIndex = 0; rowIndex < no_of_rows; rowIndex++) {
-      // const newMatId = `mat${rowIndex + 1}${no_of_columns}`;
-      this.matrix_elements[rowIndex] = this.matrix_elements[rowIndex].slice(0, -1)
+    let deleted_col = [];
+    for (let rowIndex = 0; rowIndex < this.matrix_elements.length; rowIndex++) {
+      console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", this.matrix_elements[rowIndex])
+      deleted_col.push(this.matrix_elements[rowIndex].pop());
+      // this.matrix_elements[rowIndex].pop();
     }
-  
-    // console.log("Updated matrix_elements:", this.matrix_elements);
-    // this.shouldInitializeDragDrop = true;
+    console.log("ffffffffff", deleted_col)
+    for(let i = 0; i < deleted_col!.length; i++){
+      // console.log(deleted_row[i].id, "asdf")
+      if (this.dragDropService.matrix_box_linker.hasOwnProperty(deleted_col![i].id)) {
+        delete this.dragDropService.matrix_box_linker[deleted_col![i].id];
+      }
+    }
+    console.log("after", this.matrix_elements, this.dragDropService.matrix_box_linker)
+    this.shouldInitializeDragDrop = true;
   }
+
+  isFirstRowChecked = false;
+  isFirstColumnChecked = false;
 }
 
-  // ngAfterViewInit(): void {
-  //   const matrix_elements = Array.from(document.querySelectorAll('.mat')) as HTMLElement[];
-  //   console.log("mat elements ", matrix_elements)
-  //   this.dragDropService.initializeDragAndDrop([], matrix_elements);
-  // }
+//   ngAfterViewInit(): void {
+//     const matrix_elements = Array.from(document.querySelectorAll('.mat')) as HTMLElement[];
+//     console.log("mat elements ", matrix_elements)
+//     this.dragDropService.initializeDragAndDrop([], matrix_elements);
+//   }
 
-  // add_row(){
-  //   var no_of_rows = this.matrix_elements.length
-  //   var no_of_columns = this.matrix_elements[0].length
+//   add_row(){
+//     var no_of_rows = this.matrix_elements.length
+//     var no_of_columns = this.matrix_elements[0].length
 
-  //   console.log(no_of_rows, no_of_columns)
-  //   const row = [];
-  //   for(var i  = 1; i <= no_of_columns; i++){
-  //     const newMatId = `mat${no_of_rows+1}${i}`;
-  //     row.push({id: newMatId})
-  //   }
-  //   console.log(row)
-  //   console.log(this.matrix_elements)
-  //   this.matrix_elements.push(row)
-  //   const matrix_elements = Array.from(document.querySelectorAll('.mat')) as HTMLElement[];
-  //   console.log("HTML RETRIEVED", matrix_elements)
-  //   setTimeout(() => {
-  //     this.dragDropService.initializeDragAndDrop([], matrix_elements);
-  //   }, 0);
-  // }
+//     console.log(no_of_rows, no_of_columns)
+//     const row = [];
+//     for(var i  = 1; i <= no_of_columns; i++){
+//       const newMatId = `mat${no_of_rows+1}${i}`;
+//       row.push({id: newMatId})
+//     }
+//     console.log(row)
+//     console.log(this.matrix_elements)
+//     this.matrix_elements.push(row)
+//     const matrix_elements = Array.from(document.querySelectorAll('.mat')) as HTMLElement[];
+//     console.log("HTML RETRIEVED", matrix_elements)
+//     setTimeout(() => {
+//       this.dragDropService.initializeDragAndDrop([], matrix_elements);
+//     }, 0);
+//   }
 
-  // add_column(){
-  //   var no_of_rows = this.matrix_elements.length
-  //   var no_of_columns = this.matrix_elements[0].length
+//   add_column(){
+//     var no_of_rows = this.matrix_elements.length
+//     var no_of_columns = this.matrix_elements[0].length
 
-  //   console.log(no_of_rows, no_of_columns)
-  // }
+//     console.log(no_of_rows, no_of_columns)
+//   }
 // }
