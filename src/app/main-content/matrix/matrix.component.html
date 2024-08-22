@@ -24,23 +24,43 @@
     <div id="matrix_section" class="individual_header">
       Matrix Section*
     </div>
+    
     <div class="parent-mat">
-      <div class="row" *ngFor="let row of matrix_elements; index as i">
-        <!-- first row -->
-        <div class="rowSpan" *ngIf="i===0">
-          <div class="mat_title" *ngFor="let mat of row;index as j" [attr.id]="mat.id">
-            <div>head</div>
+      <div *ngFor="let row of matrix_elements; index as i">
+        <div class="row">
+          <div *ngFor="let mat of row; index as j">
+            <div *ngIf="i === 0 || j === 0; else other_content">
+              <div class="mat_title">
+                <div [attr.id]="mat.id">Title</div>
+              </div>
+            </div>
+            <ng-template #other_content>
+              <div class="mat">
+                <div [attr.id]="mat.id">Ram</div>
+              </div>
+            </ng-template>
           </div>
         </div>
-        <!-- drop zones -->
-        <div class="rowSpan" *ngIf="i!==0">
-          <div class="mat" *ngFor="let mat of row;index as j" [attr.id]="mat.id">
-            <div>{{i}} {{j}}</div>
-          </div>
-        </div>
-      </div>  
+      </div>
     </div>
-    <div><button (click)="add_row()">add row</button></div>
-    <div><button (click)="add_column()">add column</button></div>
+
+    <div><button (click)="add_row()">Add row</button></div>
+    <div><button (click)="add_column()">Add column</button></div>
+    <!-- first [disabled](attribute binding) is set to true or false dependig on condition, then ngclass is being assiged to button(class binding) based on disabilityy -->
+    <div>
+      <button [disabled]="matrix_elements.length <= 2" [ngClass]="{'disabled-button':matrix_elements.length <= 2}"
+        (click)="del_row()">
+        Remove row
+      </button>
+    </div>
+    <div>
+      <button [disabled]="matrix_elements[0].length <= 2" [ngClass]="{'disabled-button':matrix_elements[0].length <= 2}"
+        (click)="del_column()">
+        Remove column
+      </button>
+    </div>
+    <!-- <div><button *ngIf="matrix_elements.length > 2" (click)="del_row()">delete row</button></div>
+    <div><button *ngIf="matrix_elements[0].length > 2" (click)="del_column()">delete column</button></div> -->
+
   </div>
 </div>

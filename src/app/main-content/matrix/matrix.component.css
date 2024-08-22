@@ -1,66 +1,77 @@
 .container {
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 10px;
-    margin-bottom: 20px;
-    background-color: lightblue;
-    border: 2px dotted #000;
-    padding: 20px;
-  }
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 20px;
+  background-color: lightblue;
+  border: 2px dotted #000;
+  padding: 20px;
+}
 
-  .matrix-container {
-    /* align-items: center; */
-    justify-content: center;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-    background-color: lightblue;
-    border: 2px dotted #000;
-    padding: 20px;  
-    flex-direction: column;
+.matrix-container {
+  justify-content: center;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  background-color: lightblue;
+  border: 2px dotted #000;
+  padding: 20px;
+  flex-direction: column;
 
-  }
-  .parent-mat {
-    max-width: 800px;
-    overflow-x: auto;
-  }
-  .row {
-    display: flex;
-    align-items: center;
-    justify-content: baseline;
-  }
-  
-  .mat, .mat_title {
-    min-width: 250px;
-    height: 80px;
-    background-color: lightgrey;
-    border: 2px dashed #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 5px;
-    cursor: move;
-  }
+}
 
-  .rowSpan{
-    display: flex;
-  }
+.parent-mat {
+  max-width: 800px;
+  overflow-x: auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.mat,
+.mat_title {
+  min-width: 250px;
+  height: 80px;
+  background-color: lightgrey;
+  border: 2px dashed #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  cursor: move;
+}
+
+.rowSpan {
+  display: flex;
+}
 
 
-  #whole_question{
-    align-items: baseline;
-    justify-content: baseline;
+#whole_question {
+  align-items: baseline;
+  justify-content: baseline;
 
-  }
+}
 
-  .individual_header{
-    font-size: 10px;
-  }
+.individual_header {
+  font-size: 10px;
+}
 
-  
+
+.disabled-button {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+  color: #7a7a7a;
+}
+
+button:disabled {
+  pointer-events: none;
+}

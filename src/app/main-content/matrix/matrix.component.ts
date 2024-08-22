@@ -60,6 +60,24 @@ export class MatrixComponent {
     console.log("Updated matrix_elements:", this.matrix_elements);
     this.shouldInitializeDragDrop = true;
   }
+
+
+  del_row() {
+    this.matrix_elements = this.matrix_elements.slice(0, -1);
+  }
+
+  del_column() {
+    const no_of_rows = this.matrix_elements.length;
+    const no_of_columns = this.matrix_elements[0].length + 1; // New column index
+  
+    for (let rowIndex = 0; rowIndex < no_of_rows; rowIndex++) {
+      // const newMatId = `mat${rowIndex + 1}${no_of_columns}`;
+      this.matrix_elements[rowIndex] = this.matrix_elements[rowIndex].slice(0, -1)
+    }
+  
+    // console.log("Updated matrix_elements:", this.matrix_elements);
+    // this.shouldInitializeDragDrop = true;
+  }
 }
 
   // ngAfterViewInit(): void {
