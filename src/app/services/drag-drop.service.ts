@@ -9,19 +9,18 @@ export class DragDropService {
   draggedItem$ = this.draggedItemSource.asObservable();
   matrix_box_linker: { [key: string]: string[] } = {};
 
-
-
-
   private boxxesSource = new BehaviorSubject<any[]>([]);
-  
-  // Observable that components can subscribe to
   boxxes$ = this.boxxesSource.asObservable();
+
+  ngOnInit() {
+    console.log("mat box linker: ", this.matrix_box_linker)
+  }
 
   // Method to update the boxxes array
   updateBoxes(newBoxes: any[]): void {
-    this.boxxesSource.next(newBoxes); // Push the updated array to the BehaviorSubject
+    this.boxxesSource.next(newBoxes);
   }
-
+  
   setDraggedItem(item: HTMLElement | null) {
     this.draggedItemSource.next(item);
   }
@@ -37,7 +36,8 @@ export class DragDropService {
   }
 
   initializeDragAndDrop(boxes: HTMLElement[], dropzones: HTMLElement[]): void {
-    console.log("initializing drag and drop on boxes", boxes)
+    console.log("initializing drag and drop on boxes", boxes, dropzones)
+    console.log("mat box linker: ", this.matrix_box_linker)
     boxes.forEach(box => {
       box.addEventListener("dragstart", (event: DragEvent) => {
         if (event.target instanceof HTMLElement) {

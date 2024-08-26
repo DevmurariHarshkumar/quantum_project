@@ -1,11 +1,25 @@
+<div id="classify_text"><span style="font-size: 20px;">Classify</span><span style="font-size: 12px; font-weight: 400;">&nbsp;(Locked)</span></div>
 <div class="main-content">
-    <div>Classify (Locked)</div>
     <div class="two_buttons">
-        <div>
-            <button (click)="showComponent('question_properties')" class="button">Question Properties</button>
+        <div class="button_parent">
+            <button (click)="showComponent('question_properties')" class="button">
+                <div id="pen_logo">
+                    1
+                </div>
+                <div class="button_side_text">
+                    Question Properties
+                </div>
+            </button>
         </div>
-        <div>
-            <button (click)="showComponent('question_content')" class="button">Question Content</button>
+        <div class="button_parent">
+            <button (click)="showComponent('question_content')" class="button">
+                <div id="two_logo">
+                    2
+                </div>
+                <div class="button_side_text">
+                    Question Content
+                </div>
+            </button>
         </div>
     </div>
 </div>

@@ -4,22 +4,22 @@
   justify-content: space-between;
   padding: 2px;
   background-color: white;
-  border: 1px solid #000;
+  /* border: 1px solid red; */
   margin: 4px;
   cursor: move;
   font-size: 12px;
   transition: width 0.3s ease, height 0.3s ease;
   min-width: 100px;
   min-height: 5px;
-  border-radius: 2px;
 }
 
-.box_not_draggable input {
-  font-size: inherit;
-  border: none;
-  outline: none;
-  padding: 3px;
-  background: none;
+.box_not_draggable_without_delete {
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  border: 1px solid #0000001F;
 }
 
 .container {
@@ -30,49 +30,65 @@
   margin: 20px auto;
   padding: 20px;
   background-color: white;
-  border: 2px dotted #000;
+  /* border: 2px dotted #000; */
 }
 
-.button-container {
-  display: flex;
-  align-items: center;
-}
-
-button {
-  background-color: #4CAF50;
+.delete_button {
+  background: inherit;
+  /* box-shadow: 0px 3px 6px #00000029; */
   border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px 0;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.box_not_draggable button {
-  background-color: #f44336;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  font-size: 12px;
-  border-radius: 3px;
-  cursor: pointer;
   margin-left: 10px;
-  flex-shrink: 0;
 }
 
-
-.select_tools, .add_feedback{
-  color: blue;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  gap: 10px;
-  margin-bottom: 20px;
-  border: 2px dotted #000;
-  padding: 20px;
+.select_tools_text,
+.add_feedback {
+  text-align: left;
+  letter-spacing: 0px;
+  color: #1F7A54;
+  text-transform: uppercase;
 }
 
+.select_tools {
+  background: red 0% 0% no-repeat padding-box;
+}
+
+.afterinput_text_label {
+  text-wrap: wrap;
+  text-wrap-style: balance;
+  overflow: auto;
+}
+
+#responses_text {
+  font-size: smaller;
+}
+
+#add_response_button {
+  width: 136px;
+  height: 28px;
+  background: #E2F8FE;
+  box-shadow: 0px 3px 6px #00000029;
+  border: 1px solid #7994B3;
+  border-radius: 2px;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.text_input {
+  border: none;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+.material-icons {
+  color: #1F7A54;
+}
+
+.material-symbols-outlined {
+  border: 1px solid purple;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 20
+}

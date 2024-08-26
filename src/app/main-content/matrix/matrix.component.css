@@ -7,8 +7,7 @@
   flex-direction: row;
   gap: 10px;
   margin-bottom: 20px;
-  background-color: lightblue;
-  border: 2px dotted #000;
+  /* border: 2px dotted #000; */
   padding: 20px;
 }
 
@@ -19,29 +18,39 @@
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 20px;
-  background-color: lightblue;
-  border: 2px dotted #000;
+  /* border: 2px dotted #000; */
   padding: 20px;
   flex-direction: column;
 
 }
+.whole_matrix {
+  width: 100%;
+}
 
 .parent-mat {
-  max-width: 800px;
+  max-width: 70%;
   overflow-x: auto;
+  /* border: 1px solid #0000001F; */
+  border-radius: 8px;
+}
+
+#enter_question {
+  font-family: inherit;
+  font-weight: 700;
 }
 
 .row {
+  max-width: 70%;
   display: flex;
   align-items: center;
   justify-content: baseline;
 }
 
 .mat {
-  min-width: 250px;
-  height: 80px;
-  background-color: rgb(230, 227, 227);
-  border: 2px dashed #000;
+  min-width: 306px;
+  height: 72px;
+  /* background-color: rgb(230, 227, 227); */
+  border: 2px dashed #00000038;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,10 +59,9 @@
 }
 
 .mat_title {
-  min-width: 250px;
-  height: 80px;
-  background-color: rgb(44, 189, 233);
-  border: 2px dashed #000;
+  min-width: 306px;
+  height: 72px;
+  background-color: #F3FBFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,24 +73,78 @@
   display: flex;
 }
 
-
-#whole_question {
-  align-items: baseline;
-  justify-content: baseline;
-
-}
-
 .individual_header {
   font-size: 10px;
 }
 
-
 .disabled-button {
-  background-color: #d3d3d3;
+  background-color: red;
   cursor: not-allowed;
   color: #7a7a7a;
 }
 
+.add_delete_buttons{
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: inherit;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 10px;
+  color: #1F7A54;
+}
+
 button:disabled {
   pointer-events: none;
+}
+
+#question_textbox{
+  font-size: 16px;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+input[type=text]{
+  border: none;
+  text-decoration: none;
+  height: 20px;
+  width:100%;
+}
+
+input[type=text]:focus{
+  outline: none;
+  border: none;
+}
+
+.checkbox_element{
+  accent-color: #1F7A54;
+  width: 16px;
+  height: 20px;
+}
+
+.checkbox_each_element{
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox_label{
+  padding-left: 7px;
+}
+
+#title_checkbox{
+  display: flex;
+  gap: 24px
+}
+
+.mat-flex{
+  display: flex;
+}
+
+#question_stem{
+  font-size: 12px;
 }

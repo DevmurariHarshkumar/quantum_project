@@ -2,10 +2,9 @@
     width: 70%;
     height: auto;
     gap: 10px;
-    margin: 20px auto;
-    padding: 20px;
+    margin: 0px auto;
     background-color: white;
-    border: 2px dotted #000;
+    /* border: 2px dotted #000; */
   }
 
 
@@ -17,19 +16,22 @@
 
 
 .button {
-    background-color: white;
+    font-weight: 700;
+    background-color: inherit;
     border: none;
-    color: black;
-    padding: 15px 32px;
+    font-family: inherit;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     font-size: 14px;
+    padding: 12px;
+    gap: 10px;
 }
 
-.button:hover {
-    background-color: lightgrey;
-  }
+.button_parent:hover {
+    background: lightgrey;
+}
 
   
 .footer {
@@ -41,5 +43,34 @@
   margin-top: 16px;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+#classify_text{
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
+  font-family: Quicksand;
+  letter-spacing: 0px;
+  color: #222222;
+  opacity: 1;
+  display: flex;
+  font-weight: 600;
+}
+
+#pen_logo, #two_logo{
+  background: #3FD28B;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_side_text{
+  height: 100%;
+  display: flex;
   align-items: center;
 }

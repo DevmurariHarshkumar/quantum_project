@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { DragDropService } from 'src/app/drag-drop.service';
+import { AfterViewChecked, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { DragDropService } from 'src/app/services/drag-drop.service';
 
 @Component({
   selector: 'app-matrix',
   templateUrl: './matrix.component.html',
   styleUrls: ['./matrix.component.css']
 })
-export class MatrixComponent {
+export class MatrixComponent implements OnChanges, AfterViewChecked{
 
   matrix_elements: any[][] = [
     [{id:'mat11'}, {id:'mat12'}],
@@ -15,9 +15,18 @@ export class MatrixComponent {
 
   constructor(private dragDropService: DragDropService) {}
 
+  ngOnInit(changes: SimpleChanges): void { 
+    console.log("oninit mat component")
+   }
+
+  ngOnChanges(){
+    console.log("oncahnges mat component")
+  }
+
   ngAfterViewInit(): void {
     const matrix_elements = Array.from(document.querySelectorAll('.mat')) as HTMLElement[];
     console.log("mat elements ", matrix_elements)
+    console.log("after view init")
     this.dragDropService.initializeDragAndDrop([], matrix_elements);
   }
 
@@ -28,6 +37,7 @@ export class MatrixComponent {
       this.shouldInitializeDragDrop = false;
       const matrix_elements = Array.from(document.querySelectorAll('.mat')) as HTMLElement[];
       // console.log("HTML RETRIEVED", matrix_elements);
+      console.log("after view checked")
       this.dragDropService.initializeDragAndDrop([], matrix_elements);
     }
   }
@@ -57,40 +67,31 @@ export class MatrixComponent {
 
 
   del_row() {
-    // const deleted_row = this.matrix_elements[this.matrix_elements.length-1];
-    // console.log("deleted_row///////////////////", deleted_row)
-    console.log("before", this.matrix_elements, this.dragDropService.matrix_box_linker)
-    // this.matrix_elements = this.matrix_elements.slice(0, -1);
     const deleted_row = this.matrix_elements.pop();
     
     for(let i = 0; i < deleted_row!.length; i++){
-      // console.log(deleted_row[i].id, "asdf")
       if (this.dragDropService.matrix_box_linker.hasOwnProperty(deleted_row![i].id)) {
         delete this.dragDropService.matrix_box_linker[deleted_row![i].id];
       }
     }
-    
-    
     console.log("after", this.matrix_elements, this.dragDropService.matrix_box_linker)
     this.shouldInitializeDragDrop = true;
+    console.log("mat box linker", this.dragDropService.matrix_box_linker)
   }
 
   del_column() {
     let deleted_col = [];
     for (let rowIndex = 0; rowIndex < this.matrix_elements.length; rowIndex++) {
-      console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz", this.matrix_elements[rowIndex])
       deleted_col.push(this.matrix_elements[rowIndex].pop());
-      // this.matrix_elements[rowIndex].pop();
     }
-    console.log("ffffffffff", deleted_col)
     for(let i = 0; i < deleted_col!.length; i++){
-      // console.log(deleted_row[i].id, "asdf")
       if (this.dragDropService.matrix_box_linker.hasOwnProperty(deleted_col![i].id)) {
         delete this.dragDropService.matrix_box_linker[deleted_col![i].id];
       }
     }
     console.log("after", this.matrix_elements, this.dragDropService.matrix_box_linker)
     this.shouldInitializeDragDrop = true;
+    console.log("mat box linker", this.dragDropService.matrix_box_linker)
   }
 
   isFirstRowChecked = false;

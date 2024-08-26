@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    font-family: QuickSand, "Helvetica Neue", sans-serif;
+    background-color: #EEEEEE;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: .0178571429em;
+}

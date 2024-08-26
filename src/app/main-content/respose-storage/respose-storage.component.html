@@ -1,15 +1,21 @@
 <div class="container">
+  <div id="responses_text">Responses</div>
   <div class="box_not_draggable" *ngFor="let box of boxes" [attr.id]="box.id" draggable="false" (click)="editBox(box)">
-    <input *ngIf="box.isEditing" [(ngModel)]="box.label" (blur)="stopEditing(box)" autofocus />
-    <span *ngIf="!box.isEditing">{{ box.label }}</span>
-    <button (click)="deleteBox(box)">D</button>
+    <div class="box_not_draggable_without_delete">
+      <span class="material-symbols-outlined">
+        drag_indicator
+      </span>
+      <input class="text_input" *ngIf="box.isEditing" [(ngModel)]="box.label" (blur)="stopEditing(box)" autofocus />
+      <span class="afterinput_text_label" *ngIf="!box.isEditing">{{ box.label }}</span>
+    </div>
+    <button class="delete_button" (click)="deleteBox(box)"><span class="material-icons">delete</span></button>
   </div>
-  <button (click)="addBox()">Add Response</button>
+  <button id="add_response_button" (click)="addBox()">ADD RESPONSE</button>
 </div>
 
 
 <div class="select_tools">
-  SELECT TOOLS
+  <span class="select_tools_text">SELECT TOOLS</span>
 </div>
 
 <div class="add_feedback">
