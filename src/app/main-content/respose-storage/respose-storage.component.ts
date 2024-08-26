@@ -8,12 +8,12 @@ import { DragDropService } from '../../services/drag-drop.service';
 })
 export class ResposeStorageComponent implements OnInit, OnChanges, AfterViewInit {
   boxes: any[] = []
-  box_till_now = 1;
+  box_till_now = 0;
 
   constructor(private dragDropService: DragDropService) {  }
 
   ngOnInit(): void {
-    this.boxes = Array.from({ length: 5 }, (_, i) => ({ id: `box${i + 1}`, label: `Response ${i + 1}`, isEditing: false }));
+    this.boxes = Array.from({ length: 0 }, (_, i) => ({ id: `box${i + 1}`, label: `Response ${i + 1}`, isEditing: false }));
     this.addBox(); // for testing, remove after csss done
   }
 

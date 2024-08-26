@@ -1,7 +1,6 @@
 .container {
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -13,11 +12,9 @@
 
 .matrix-container {
   justify-content: center;
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 20px;
   /* border: 2px dotted #000; */
   padding: 20px;
   flex-direction: column;
@@ -67,6 +64,29 @@
   justify-content: center;
   margin: 5px;
   cursor: move;
+}
+
+.title_input_border{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+.title_input{
+  background-color: inherit;
+  justify-content: center;
+  border: none;
+  outline: none;
+  width: 100%;
+  size: auto;
+  text-align: center;
+  /* background-color: red; */
+  font-family: inherit;
+  font-size: medium;
+  /* border-bottom: 2px solid black; */
 }
 
 .rowSpan {

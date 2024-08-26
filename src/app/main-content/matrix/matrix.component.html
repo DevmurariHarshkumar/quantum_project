@@ -37,13 +37,25 @@
             <div *ngFor="let mat of row; index as j">
               <div *ngIf="i === 0 || j === 0; else other_content">
               <div *ngIf="i === 0 && j !== 0 && isFirstRowChecked">
-                <div class="mat_title" [attr.id]="mat.id"></div>
+                <div class="mat_title" [attr.id]="mat.id">
+                  <div class="title_input_border">
+                    <input type="textbox" class="title_input">
+                  </div>
+                </div>
               </div>
               <div *ngIf="j === 0 && i !== 0 && isFirstColumnChecked">
-                <div class="mat_title" [attr.id]="mat.id"></div>
+                <div class="mat_title" [attr.id]="mat.id">
+                  <div class="title_input_border">
+                    <input type="textbox" class="title_input">
+                  </div>
+                </div>
               </div>
               <div *ngIf="i ===0 && j === 0 && isFirstRowChecked && isFirstColumnChecked">
-                <div class="mat_title" [attr.id]="mat.id"></div>
+                <div class="mat_title" [attr.id]="mat.id">
+                  <div class="title_input_border">
+                    <input type="textbox" class="title_input">
+                  </div>
+                </div>
               </div>
             </div>
             <ng-template #other_content>
