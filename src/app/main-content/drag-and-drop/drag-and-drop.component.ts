@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { DragDropService } from '../../services/drag-drop.service';
 
 @Component({
@@ -6,32 +6,31 @@ import { DragDropService } from '../../services/drag-drop.service';
   templateUrl: './drag-and-drop.component.html',
   styleUrls: ['./drag-and-drop.component.css']
 })
-export class DragAndDropComponent implements OnInit, OnChanges, AfterViewInit {
+export class DragAndDropComponent implements OnInit, AfterViewInit {
   dropzones = [
     { id: 'dropzone1' },
   ];
   boxes_inside_dropzone: any[] = [];
 
-  constructor(private dragDropService: DragDropService) { }
+  constructor(private dragDropService: DragDropService) { 
+    console.log("constructor drag drop const");
+    this.dragDropService.boxxes$.subscribe(updatedBoxxes => {
+      this.boxes_inside_dropzone = updatedBoxxes;
+      console.log("updated boxes", updatedBoxxes)
+    })
+  }
 
   ngOnInit(): void {
     console.log("ngoninit drag drop comp");
     console.log("asdfsadfsadfsadf", this.dragDropService.box_till_now)
-    this.dragDropService.boxxes$.subscribe(updatedBoxxes => {
-      this.boxes_inside_dropzone = updatedBoxxes;
-      console.log("updated boxes", updatedBoxxes)
-    })
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("ngonchanges drag drop comp");
-  }
   ngAfterViewInit(): void {
     const dropzones = Array.from(document.querySelectorAll('.dropzone')) as HTMLElement[];
     this.dragDropService.initializeDragAndDrop([], dropzones);
-    this.dragDropService.boxxes$.subscribe(updatedBoxxes => {
-      this.boxes_inside_dropzone = updatedBoxxes;
-      console.log("updated boxes", updatedBoxxes)
-    })
+    // this.dragDropService.boxxes$.subscribe(updatedBoxxes => {
+    //   this.boxes_inside_dropzone = updatedBoxxes;
+    //   console.log("updated boxes", updatedBoxxes)
+    // })
   }
 }

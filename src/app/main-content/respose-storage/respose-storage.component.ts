@@ -9,14 +9,16 @@ import { DragDropService } from '../../services/drag-drop.service';
 export class ResposeStorageComponent implements OnInit, AfterViewInit {
   boxes: any[] = [];
 
-  constructor(private dragDropService: DragDropService) {}
-
-  ngOnInit(): void {
-    // Subscribe to boxxes$ observable from the service
+  constructor(private dragDropService: DragDropService) {
+    console.log("constructor respose stroge const");
     this.dragDropService.boxxes$.subscribe(updatedBoxes => {
       this.boxes = updatedBoxes;
       this.initializeDragAndDrop();
     });
+
+  }
+
+  ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
