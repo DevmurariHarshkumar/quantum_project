@@ -7,6 +7,7 @@ import { ClassifyPageComponent } from './classify-page/classify-page.component';
 import { MainPropertiesComponent } from './main-properties/main-properties.component';
 import { MainContentModule } from './main-content/main-content.module';
 import { StandardsAndSkillsComponent } from './main-properties/standards-and-skills/standards-and-skills.component';
+import { ClassifyAnswerComponent } from './classify-answer/classify-answer.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { StandardsAndSkillsComponent } from './main-properties/standards-and-ski
     ClassifyPageComponent,
     MainPropertiesComponent,
     StandardsAndSkillsComponent,
+    ClassifyAnswerComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DragDropService {
+  box_till_now = 0
   private draggedItemSource = new BehaviorSubject<HTMLElement | null>(null);
   draggedItem$ = this.draggedItemSource.asObservable();
   matrix_box_linker: { [key: string]: string[] } = {};
@@ -13,24 +14,35 @@ export class DragDropService {
   private boxxesSource = new BehaviorSubject<any[]>([]);
   boxxes$ = this.boxxesSource.asObservable();
 
+  // caboxes:any[] = []
+  // setcaboxes(val:any[]){
+  //   console.log("print setca", val);
+  //   this.caboxes = val;
+  // }
+
+  // getcaboxes(){
+  //   console.log("print getca");
+  //   return this.caboxes;
+  // }
+
   // Update the boxes array
   updateBoxes(newBoxes: any[]): void {
     this.boxxesSource.next(newBoxes);
     console.log("UPDATED BOXES NOW: ", newBoxes);
-    
+    // this.setcaboxes(...[newBoxes]);
   }
 
   addBox(): void {
+    this.box_till_now+=1
     const currentBoxes = this.boxxesSource.getValue();
-    const newBoxId = `box${currentBoxes.length + 1}`;
-    const newBox = { id: newBoxId, label: `Response ${currentBoxes.length + 1}`, isEditing: false };
+    const newBoxId = `box${this.box_till_now}`;
+    const newBox = { id: newBoxId, label: `Response ${this.box_till_now}`, isEditing: false };
     const updatedBoxes = [...currentBoxes, newBox];
     this.updateBoxes(updatedBoxes);
   }
 
   deleteBox(boxId: string): void {
     console.log("inside del box", boxId);
-    
     const currentBoxes = this.boxxesSource.getValue();
     const updatedBoxes = currentBoxes.filter(box => box.id !== boxId);
     this.updateBoxes(updatedBoxes);

@@ -9,8 +9,9 @@ import { DragDropService } from 'src/app/services/drag-drop.service';
 export class MatrixComponent implements OnChanges, AfterViewChecked {
 
   matrix_elements: any[][] = [
-    [{ id: 'mat11' }, { id: 'mat12' }],
-    [{ id: 'mat21' }, { id: 'mat22' }],
+    [{ id: 'mat11' }, { id: 'mat12' }, { id: 'mat12' }],
+    [{ id: 'mat21' }, { id: 'mat22' }, { id: 'mat22' }],
+    [{ id: 'mat31' }, { id: 'mat32' }, { id: 'mat32' }]
   ];
 
   constructor(private dragDropService: DragDropService) { }
