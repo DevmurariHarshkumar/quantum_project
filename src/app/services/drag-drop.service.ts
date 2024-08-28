@@ -9,23 +9,34 @@ export class DragDropService {
   draggedItem$ = this.draggedItemSource.asObservable();
   matrix_box_linker: { [key: string]: string[] } = {};
 
+  // Initialize the boxes array
   private boxxesSource = new BehaviorSubject<any[]>([]);
   boxxes$ = this.boxxesSource.asObservable();
 
-  ngOnInit() {
-    console.log("mat box linker: ", this.matrix_box_linker)
-  }
-
-  // Method to update the boxxes array
+  // Update the boxes array
   updateBoxes(newBoxes: any[]): void {
     this.boxxesSource.next(newBoxes);
-  }
-  
-  setDraggedItem(item: HTMLElement | null) {
-    this.draggedItemSource.next(item);
+    console.log("UPDATED BOXES NOW: ", newBoxes);
+    
   }
 
-  // removing afte delte is pressed, removes from mat-box-linker
+  addBox(): void {
+    const currentBoxes = this.boxxesSource.getValue();
+    const newBoxId = `box${currentBoxes.length + 1}`;
+    const newBox = { id: newBoxId, label: `Response ${currentBoxes.length + 1}`, isEditing: false };
+    const updatedBoxes = [...currentBoxes, newBox];
+    this.updateBoxes(updatedBoxes);
+  }
+
+  deleteBox(boxId: string): void {
+    console.log("inside del box", boxId);
+    
+    const currentBoxes = this.boxxesSource.getValue();
+    const updatedBoxes = currentBoxes.filter(box => box.id !== boxId);
+    this.updateBoxes(updatedBoxes);
+    this.cleanupDeletedBox(boxId);
+  }
+
   cleanupDeletedBox(deletedBoxId: string): void {
     for (const key in this.matrix_box_linker) {
       const index = this.matrix_box_linker[key].indexOf(deletedBoxId);
@@ -35,9 +46,11 @@ export class DragDropService {
     }
   }
 
+  setDraggedItem(item: HTMLElement | null) {
+    this.draggedItemSource.next(item);
+  }
+
   initializeDragAndDrop(boxes: HTMLElement[], dropzones: HTMLElement[]): void {
-    console.log("initializing drag and drop on boxes", boxes, dropzones)
-    console.log("mat box linker: ", this.matrix_box_linker)
     boxes.forEach(box => {
       box.addEventListener("dragstart", (event: DragEvent) => {
         if (event.target instanceof HTMLElement) {
@@ -54,26 +67,22 @@ export class DragDropService {
 
       dropzone.addEventListener("drop", (event: DragEvent) => {
         event.preventDefault();
-        const draggedItem = this.draggedItemSource.getValue()
+        const draggedItem = this.draggedItemSource.getValue();
         if (draggedItem && event.target instanceof HTMLElement && (event.target.classList.contains('dropzone') || event.target.classList.contains('mat'))) {
           draggedItem.parentNode?.removeChild(draggedItem);
           event.target.appendChild(draggedItem);
-          // console.log("parent------  ", draggedItem.parentNode)
-          // console.log("event.target------- ", event.target.id)
           for (const key in this.matrix_box_linker) {
             const index = this.matrix_box_linker[key].indexOf(draggedItem.id);
             if (index > -1) {
               this.matrix_box_linker[key].splice(index, 1);
             }
           }
-          // console.log("draggedItem.id------- ",this.matrix_box_linker[event.target.id])
           if (!this.matrix_box_linker[event.target.id]) {
             this.matrix_box_linker[event.target.id] = [];
           }
           this.matrix_box_linker[event.target.id].push(draggedItem.id);
           this.setDraggedItem(null);
         }
-        // console.log("UPDATED MATRIX_BOX_LINKER....", this.matrix_box_linker)
       });
     });
   }

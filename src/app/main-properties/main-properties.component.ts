@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-properties.component.css']
 })
 export class MainPropertiesComponent {
-
+  asdf(){
+    // this.activeComponent
+  }
 }

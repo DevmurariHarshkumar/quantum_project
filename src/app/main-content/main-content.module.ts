@@ -5,6 +5,8 @@ import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { ResposeStorageComponent } from './respose-storage/respose-storage.component';
 import { MatrixComponent } from './matrix/matrix.component';
 import { FormsModule } from '@angular/forms';
+import { AddFeedbackComponent } from './add-feedback/add-feedback.component';
+import { SelectToolsComponent } from './select-tools/select-tools.component';
 
 
 @NgModule({
@@ -13,6 +15,8 @@ import { FormsModule } from '@angular/forms';
     DragAndDropComponent,
     ResposeStorageComponent,
     MatrixComponent,
+    AddFeedbackComponent,
+    SelectToolsComponent,
   ],
   imports: [
     CommonModule, 

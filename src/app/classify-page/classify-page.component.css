@@ -74,3 +74,21 @@
   display: flex;
   align-items: center;
 }
+
+.last_button_parent{
+  display: flex;
+}
+
+
+.change_buttons{
+  font-family: inherit;
+  font-weight: 700;
+  padding: 5px 10px;
+  background: #3FD28B;
+  width: auto;
+  height: auto;
+  color: black;
+  border: none;
+  border-radius: 2px;
+  margin: auto;
+}

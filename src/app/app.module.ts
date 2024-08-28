@@ -6,12 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClassifyPageComponent } from './classify-page/classify-page.component';
 import { MainPropertiesComponent } from './main-properties/main-properties.component';
 import { MainContentModule } from './main-content/main-content.module';
+import { StandardsAndSkillsComponent } from './main-properties/standards-and-skills/standards-and-skills.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClassifyPageComponent,
     MainPropertiesComponent,
+    StandardsAndSkillsComponent,
   ],
   imports: [
     BrowserModule,

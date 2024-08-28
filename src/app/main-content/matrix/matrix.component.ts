@@ -6,20 +6,20 @@ import { DragDropService } from 'src/app/services/drag-drop.service';
   templateUrl: './matrix.component.html',
   styleUrls: ['./matrix.component.css']
 })
-export class MatrixComponent implements OnChanges, AfterViewChecked{
+export class MatrixComponent implements OnChanges, AfterViewChecked {
 
   matrix_elements: any[][] = [
-    [{id:'mat11'}, {id:'mat12'}],
-    [{id:'mat21'}, {id:'mat22'}],
+    [{ id: 'mat11' }, { id: 'mat12' }],
+    [{ id: 'mat21' }, { id: 'mat22' }],
   ];
 
-  constructor(private dragDropService: DragDropService) {}
+  constructor(private dragDropService: DragDropService) { }
 
-  ngOnInit(changes: SimpleChanges): void { 
+  ngOnInit(changes: SimpleChanges): void {
     console.log("oninit mat component")
-   }
+  }
 
-  ngOnChanges(){
+  ngOnChanges() {
     console.log("oncahnges mat component")
   }
 
@@ -47,8 +47,8 @@ export class MatrixComponent implements OnChanges, AfterViewChecked{
     const no_of_columns = this.matrix_elements[0].length;
     const row = [];
     for (let i = 1; i <= no_of_columns; i++) {
-      const newMatId = `mat${no_of_rows+1}${i}`;
-      row.push({id: newMatId});
+      const newMatId = `mat${no_of_rows + 1}${i}`;
+      row.push({ id: newMatId });
     }
     this.matrix_elements.push(row);
     this.shouldInitializeDragDrop = true;
@@ -57,7 +57,7 @@ export class MatrixComponent implements OnChanges, AfterViewChecked{
   add_column() {
     const no_of_rows = this.matrix_elements.length;
     const no_of_columns = this.matrix_elements[0].length + 1; // New column index
-  
+
     for (let rowIndex = 0; rowIndex < no_of_rows; rowIndex++) {
       const newMatId = `mat${rowIndex + 1}${no_of_columns}`;
       this.matrix_elements[rowIndex].push({ id: newMatId });
@@ -68,9 +68,23 @@ export class MatrixComponent implements OnChanges, AfterViewChecked{
 
   del_row() {
     const deleted_row = this.matrix_elements.pop();
-    
-    for(let i = 0; i < deleted_row!.length; i++){
-      if (this.dragDropService.matrix_box_linker.hasOwnProperty(deleted_row![i].id)) {
+    // for cell of deleted row
+    for (let i = 0; i < deleted_row!.length; i++) {
+      if (deleted_row && deleted_row.length > 0) {
+        console.log("mat of row", deleted_row[i].id);
+        console.log("mat box link", this.dragDropService.matrix_box_linker);
+        // boxes of that cell
+        let boxes = this.dragDropService.matrix_box_linker[deleted_row[i].id]
+        if (boxes) {
+          // boxes of that cell
+          while (boxes.length) {
+            console.log("boxes ", boxes)
+            console.log("box given to delete", boxes[0])
+            this.dragDropService.deleteBox(boxes[0])
+            console.log("one box deleted")
+          }
+        }
+        // }
         delete this.dragDropService.matrix_box_linker[deleted_row![i].id];
       }
     }
@@ -84,8 +98,23 @@ export class MatrixComponent implements OnChanges, AfterViewChecked{
     for (let rowIndex = 0; rowIndex < this.matrix_elements.length; rowIndex++) {
       deleted_col.push(this.matrix_elements[rowIndex].pop());
     }
-    for(let i = 0; i < deleted_col!.length; i++){
-      if (this.dragDropService.matrix_box_linker.hasOwnProperty(deleted_col![i].id)) {
+    console.log("deleted_col", deleted_col)
+    // for(let i = 0; i < deleted_col!.length; i++){
+
+    // }
+    for (let i = 0; i < deleted_col!.length; i++) {
+      if (deleted_col && deleted_col.length > 0) {
+        console.log("mat box linker", this.dragDropService.matrix_box_linker[deleted_col[i].id]);
+        let boxes = this.dragDropService.matrix_box_linker[deleted_col[i].id]
+        if (boxes) {
+          // boxes of that cell
+          while (boxes.length) {
+            console.log("boxes ", boxes)
+            console.log("box given to delete", boxes[0])
+            this.dragDropService.deleteBox(boxes[0])
+            console.log("one box deleted")
+          }
+        }
         delete this.dragDropService.matrix_box_linker[deleted_col![i].id];
       }
     }

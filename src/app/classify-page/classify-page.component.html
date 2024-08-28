@@ -28,6 +28,10 @@
     <app-main-properties *ngIf="activeComponent === 'question_properties'"></app-main-properties>
     <app-main-content *ngIf="activeComponent === 'question_content'"></app-main-content>
 </div>
+<div class="last_button_parent">
+    <button class="change_buttons" *ngIf="activeComponent === 'question_properties'" (click)="showComponent('question_content')">SAVE AND PROCEED</button>
+    <button class="change_buttons" *ngIf="activeComponent === 'question_content'" (click)="showComponent('question_properties')">PREVIOUS</button>
+</div>
 
 <footer>
     <div class="footer">
