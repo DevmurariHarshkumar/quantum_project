@@ -28,9 +28,5 @@ export class DragAndDropComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     const dropzones = Array.from(document.querySelectorAll('.dropzone')) as HTMLElement[];
     this.dragDropService.initializeDragAndDrop([], dropzones);
-    // this.dragDropService.boxxes$.subscribe(updatedBoxxes => {
-    //   this.boxes_inside_dropzone = updatedBoxxes;
-    //   console.log("updated boxes", updatedBoxxes)
-    // })
   }
 }
