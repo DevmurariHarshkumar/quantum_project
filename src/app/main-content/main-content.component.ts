@@ -9,6 +9,6 @@ export class MainContentComponent implements OnInit{
   constructor(private dragDropService: DragDropService){}
   ngOnInit(): void {
     this.dragDropService.setisQuestionPage(true)
-    console.log("QUESTIONPAGE: ", this.dragDropService.getisQuestionPage())
+    // console.log("QUESTIONPAGE: ", this.dragDropService.getisQuestionPage())
   }
 }

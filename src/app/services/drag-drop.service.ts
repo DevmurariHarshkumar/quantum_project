@@ -141,13 +141,17 @@ export class DragDropService {
   frc$ = this.isFirstRowChecked.asObservable();
   private isFirstColumnChecked = new BehaviorSubject<boolean>(false);
   fcc$ = this.isFirstColumnChecked.asObservable();
+  // private matrix_elements = new BehaviorSubject<any[][]>([
+    //   [{ id: 'mat11' }, { id: 'mat12' }, { id: 'mat12' }],
+    //   [{ id: 'mat21' }, { id: 'mat22' }, { id: 'mat22' }],
+    //   [{ id: 'mat31' }, { id: 'mat32' }, { id: 'mat32' }]
+    // ])
   private matrix_elements = new BehaviorSubject<any[][]>([
-    [{ id: 'mat11' }, { id: 'mat12' }, { id: 'mat12' }],
-    [{ id: 'mat21' }, { id: 'mat22' }, { id: 'mat22' }],
-    [{ id: 'mat31' }, { id: 'mat32' }, { id: 'mat32' }]
+    [{ id: 'mat11' }, { id: 'mat12' }],
+    [{ id: 'mat21' }, { id: 'mat22' }]
   ])
   me$ = this.matrix_elements.asObservable();
-
+  
   add_row() {
     const no_of_rows = this.matrix_elements.getValue().length;
     const no_of_columns = this.matrix_elements.getValue()[0].length;
@@ -159,19 +163,19 @@ export class DragDropService {
     this.matrix_elements.getValue().push(row);
     this.shouldInitializeDragDrop = true;
   }
-
+  
   add_column() {
     const no_of_rows = this.matrix_elements.getValue().length;
     const no_of_columns = this.matrix_elements.getValue()[0].length + 1; // New column index
-
+    
     for (let rowIndex = 0; rowIndex < no_of_rows; rowIndex++) {
       const newMatId = `mat${rowIndex + 1}${no_of_columns}`;
       this.matrix_elements.getValue()[rowIndex].push({ id: newMatId });
     }
     this.shouldInitializeDragDrop = true;
   }
-
-
+  
+  
   del_row() {
     const deleted_row = this.matrix_elements.getValue().pop();
     // for cell of deleted row
@@ -198,7 +202,7 @@ export class DragDropService {
     this.shouldInitializeDragDrop = true;
     // console.log("mat box linker", this.matrix_box_linker)
   }
-
+  
   del_column() {
     let deleted_col = [];
     for (let rowIndex = 0; rowIndex < this.matrix_elements.getValue().length; rowIndex++) {
@@ -206,7 +210,7 @@ export class DragDropService {
     }
     // console.log("deleted_col", deleted_col)
     // for(let i = 0; i < deleted_col!.length; i++){
-
+      
     // }
     for (let i = 0; i < deleted_col!.length; i++) {
       if (deleted_col && deleted_col.length > 0) {
@@ -228,11 +232,21 @@ export class DragDropService {
     this.shouldInitializeDragDrop = true;
     // console.log("mat box linker", this.matrix_box_linker)
   }
+  
+  
+  updatefirstcol(val:boolean){
+    this.isFirstColumnChecked.next(val);
+    console.log("DDDDDDDDDDDDDDDDDDDDDDDDD", val);
+  }
+  updatefirstrow(val:boolean){
+    this.isFirstRowChecked.next(val);
+    console.log("DDDDDDDDDDDDDDDDDDDDDDDDD", val);
+  }
 
-
+  
   correct_boxes: any[] = []
   wrong_boxes: any[] = []
-
+  
   get_correct_boxes(){
     return this.correct_boxes;
   }

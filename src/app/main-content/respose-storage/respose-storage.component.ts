@@ -10,7 +10,7 @@ export class ResposeStorageComponent implements OnInit, AfterViewInit {
   boxes: any[] = [];
 
   constructor(private dragDropService: DragDropService) {
-    console.log("constructor respose stroge const");
+    // console.log("constructor respose stroge const");
     this.dragDropService.boxxes$.subscribe(updatedBoxes => {
       this.boxes = updatedBoxes;
       this.initializeDragAndDrop();

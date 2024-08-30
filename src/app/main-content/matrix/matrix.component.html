@@ -14,11 +14,11 @@
     </div>
     <div id="title_checkbox">
       <span class="checkbox_each_element">
-        <input type="checkbox" id="1st_Column" name="1st_Column" value="1st_Column" class="checkbox_element" [(ngModel)]="isFirstColumnChecked">
+        <input type="checkbox" id="1st_Column" name="1st_Column" value="1st_Column" class="checkbox_element" [(ngModel)]="isFirstColumnChecked" (click)="updatefirstcol(!isFirstColumnChecked)">
         <label class="checkbox_label" for="1st_Column"> 1st Column</label>
       </span>
       <span class="checkbox_each_element">
-        <input type="checkbox" id="1st_Row" name="1st_Row" value="1st_Row" class="checkbox_element" [(ngModel)]="isFirstRowChecked">
+        <input type="checkbox" id="1st_Row" name="1st_Row" value="1st_Row" class="checkbox_element" [(ngModel)]="isFirstRowChecked" (click)="updatefirstrow(!isFirstRowChecked)">
         <label class="checkbox_label" for="1st_Row"> 1st Row</label>
       </span>
     </div>

@@ -1,5 +1,10 @@
-<div id="classify_text"><span style="font-size: 20px;">Classify</span><span style="font-size: 12px; font-weight: 400;">&nbsp;(Locked)</span></div>
-<button routerLink="/classify_answer">classify answer</button>
+<div class="classify_heading">
+    <div id="classify_text"><span style="font-size: 20px;">Classify</span><span style="font-size: 12px; font-weight: 400;">&nbsp;(Locked)</span></div>
+    <div>
+        <button id="unlock_button" [disabled]>UNLOCK</button>
+        <button id="save_and_preview_button" routerLink="/classify_answer">SAVE AND PREVIEW</button>
+    </div>
+</div>
 <div class="main-content">
     <div class="two_buttons">
         <div class="button_parent">

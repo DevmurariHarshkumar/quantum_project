@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewChecked, Component, OnChanges } from '@angular/core';
 import { DragDropService } from 'src/app/services/drag-drop.service';
 
 @Component({
@@ -7,15 +7,17 @@ import { DragDropService } from 'src/app/services/drag-drop.service';
   styleUrls: ['./matrix.component.css']
 })
 export class MatrixComponent implements OnChanges, AfterViewChecked {
- 
-
+  
+  
   constructor(private dragDropService: DragDropService) { }
+  // console.log("matcomp constructor");
+  
   isFirstRowChecked = false;
   isFirstColumnChecked = false;
   matrix_elements: any[][] = []
 
-  ngOnInit(changes: SimpleChanges): void {
-    console.log("oninit mat component")
+  ngOnInit(): void {
+    // console.log("oninit mat component")
     this.dragDropService.frc$.subscribe(new_val => {
       this.isFirstRowChecked = new_val;
     });
@@ -33,8 +35,8 @@ export class MatrixComponent implements OnChanges, AfterViewChecked {
   
   ngAfterViewInit(): void {
     const matrix_elements = Array.from(document.querySelectorAll('.mat')) as HTMLElement[];
-    console.log("mat elements ", matrix_elements)
-    console.log("after view init")
+    // console.log("mat elements ", matrix_elements)
+    // console.log("after view init")
     this.dragDropService.initializeDragAndDrop([], matrix_elements);
   }
   
@@ -44,7 +46,7 @@ export class MatrixComponent implements OnChanges, AfterViewChecked {
       this.dragDropService.shouldInitializeDragDrop = false;
       const matrix_elements = Array.from(document.querySelectorAll('.mat')) as HTMLElement[];
       // console.log("HTML RETRIEVED", matrix_elements);
-      console.log("after view checked")
+      // console.log("after view checked")
       this.dragDropService.initializeDragAndDrop([], matrix_elements);
     }
   }
@@ -62,6 +64,12 @@ export class MatrixComponent implements OnChanges, AfterViewChecked {
   del_column(){
     this.dragDropService.del_column()
   }
-
-
+  updatefirstcol(val:boolean){
+    console.log("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM", val)
+    this.dragDropService.updatefirstcol(val);
+  }
+  updatefirstrow(val:boolean){
+    console.log("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM", val)
+    this.dragDropService.updatefirstrow(val);
+  }
 }

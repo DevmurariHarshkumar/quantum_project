@@ -13,16 +13,15 @@ export class DragAndDropComponent implements OnInit, AfterViewInit {
   boxes_inside_dropzone: any[] = [];
 
   constructor(private dragDropService: DragDropService) { 
-    console.log("constructor drag drop const");
+    // console.log("constructor drag drop const");
     this.dragDropService.boxxes$.subscribe(updatedBoxxes => {
       this.boxes_inside_dropzone = updatedBoxxes;
-      console.log("updated boxes", updatedBoxxes)
+      // console.log("updated boxes", updatedBoxxes)
     })
   }
 
   ngOnInit(): void {
-    console.log("ngoninit drag drop comp");
-    console.log("asdfsadfsadfsadf", this.dragDropService.box_till_now)
+    // console.log("ngoninit drag drop comp");
   }
 
   ngAfterViewInit(): void {
